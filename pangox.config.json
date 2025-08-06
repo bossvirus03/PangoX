@@ -1,0 +1,116 @@
+{
+    "bot": {
+        "name": "PangoX Bot",
+        "version": "1.0.0",
+        "description": "A multilingual Facebook Chat Bot with modular commands"
+    },
+    "selfListen": true,
+    "logEvents": true,
+    "language": {
+        "default": "vi",
+        "supported": [
+            "vi",
+            "en"
+        ],
+        "autoDetect": false
+    },
+    "commands": {
+        "prefix": "/",
+        "caseSensitive": false,
+        "maxArgsLength": 100,
+        "cooldown": {
+            "enabled": true,
+            "globalMs": 1000,
+            "perUserMs": 2000
+        }
+    },
+    "features": {
+        "welcomeMessage": {
+            "enabled": true,
+            "message": {
+                "vi": "👋 Xin chào! Tôi là {botName}. Sử dụng /help để xem các lệnh có sẵn.",
+                "en": "👋 Hello! I'm {botName}. Use /help to see available commands."
+            }
+        },
+        "autoReply": {
+            "enabled": false,
+            "prefix": "🤖 ",
+            "unknownCommand": {
+                "vi": "❓ Lệnh không tồn tại. Sử dụng /help để xem danh sách lệnh.",
+                "en": "❓ Unknown command. Use /help to see command list."
+            }
+        },
+        "logging": {
+            "enabled": true,
+            "level": "info",
+            "logCommands": true,
+            "logErrors": true
+        },
+        "resend": {
+            "enabled": false,
+            "maxStoredMessages": 50,
+            "adminOnly": false
+        }
+    },
+    "facebook": {
+        "appStatePath": "appstate.json",
+        "options": {
+            "listenEvents": true,
+            "logLevel": "silent",
+            "selfListen": false,
+            "selfListenEvent": false,
+            "listenTyping": false,
+            "updatePresence": true,
+            "autoMarkDelivery": false,
+            "autoMarkRead": false,
+            "autoReconnect": true
+        }
+    },
+    "admin": {
+        "userIds": [],
+        "testThreadId": "100049732817959",
+        "permissions": {
+            "stopBot": [
+                "admin"
+            ],
+            "changeLanguage": [
+                "user",
+                "admin"
+            ],
+            "viewLogs": [
+                "admin"
+            ]
+        }
+    },
+    "schedule": {
+        "enabled": true,
+        "timezone": "Asia/Ho_Chi_Minh",
+        "commands": {
+            "dailyGreeting": {
+                "enabled": true,
+                "cron": "0 8 * * *"
+            },
+            "hourlyStatus": {
+                "enabled": false,
+                "cron": "0 * * * *"
+            },
+            "weeklyReport": {
+                "enabled": true,
+                "cron": "0 9 * * 1"
+            }
+        }
+    },
+    "database": {
+        "enabled": false,
+        "type": "json",
+        "path": "data/bot.db"
+    },
+    "security": {
+        "rateLimiting": {
+            "enabled": true,
+            "maxRequestsPerMinute": 30
+        },
+        "blockedUsers": [],
+        "allowedThreads": []
+    }
+}
